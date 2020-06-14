@@ -205,31 +205,13 @@ df_countries_cases.fillna(0,inplace=True)
 df_continents_cases.fillna(0,inplace=True)
 
 
-# In[362]:
+# In[ ]:
 
 
 df_t = pd.DataFrame(pd.to_numeric(df_countries_cases.sum()),dtype=np.float64).transpose()
 print(df_t)
 df_t["Mortality Rate (per 100)"] = np.round(100*df_t["Deaths"]/df_t["Confirmed"],2)
 df_t.style.background_gradient(cmap='Wistia',axis=1).format("{:.0f}",subset=["Confirmed"])
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[363]:
@@ -308,18 +290,6 @@ fig.data[0].textinfo = 'label+text+value'
 fig.show()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
 # In[248]:
 
 
@@ -327,7 +297,7 @@ fig.show()
 # ------
 
 # ebola dataset
-ebola_14 = pd.read_csv("/Users/rachanabhaskar/Desktop/paper/Data/ebola.csv", 
+ebola_14 = pd.read_csv("ebola.csv", 
                        parse_dates=['Date'])
 
 # ebola_14 = ebola_14[ebola_14['Date']!=max(ebola_14['Date'])]
@@ -440,35 +410,11 @@ plt.title("Top 10 Countries (Confirmed Cases)",fontsize=20)
 plt.grid(alpha=0.3)
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
 # In[255]:
 
 
 # sars dataset
-sars_03 = pd.read_csv("/Users/rachanabhaskar/Desktop/paper/Data/sars_2003_complete_dataset_clean.csv", 
+sars_03 = pd.read_csv("sars_2003_complete_dataset_clean.csv", 
                        parse_dates=['Date'])
 
 # selecting important columns only
@@ -535,34 +481,10 @@ fig.update(layout_coloraxis_showscale=True)
 fig.show()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
 # In[258]:
 
 
-h1n1_ds = pd.read_csv("/Users/rachanabhaskar/Desktop/paper/Data/Pandemic_H1N1_2009.csv")
+h1n1_ds = pd.read_csv("Pandemic_H1N1_2009.csv")
 
 
 # In[259]:
@@ -614,30 +536,12 @@ fig.update(layout_coloraxis_showscale=True)
 fig.show()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
 # In[264]:
 
 
 # MERS
-mers_cntry = pd.read_csv("/Users/rachanabhaskar/Desktop/paper/Data/country_count_latest.csv")
-mers_weekly = pd.read_csv("/Users/rachanabhaskar/Desktop/paper/Data/weekly_clean.csv")
+mers_cntry = pd.read_csv("country_count_latest.csv")
+mers_weekly = pd.read_csv("Data/weekly_clean.csv")
 
 # cleaning
 mers_weekly['Year-Week'] = mers_weekly['Year'].astype(str) + ' - ' + mers_weekly['Week'].astype(str)
@@ -650,7 +554,6 @@ sum(mers_cntry['Confirmed'])
 
 
 # In[265]:
-
 
 
 mers_cntry
@@ -667,36 +570,6 @@ fig.update_layout(title_text="Confirmed Cases MERS Heat Map (Log Scale)")
 fig.update_coloraxes(colorbar_title="Confirmed Cases(Log Scale)",colorscale="Reds")
 fig.update(layout_coloraxis_showscale=True)
 fig.show()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[306]:
@@ -774,16 +647,4 @@ plt.bar([p + width for p in pos], epidemics['deaths'], width, alpha=0.5, color='
 plt.bar([p + width*2 for p in pos], epidemics['mortality'], width, alpha=0.5, color='#FFC222')
 ax.set_xticks([p + 1.5 * width for p in pos])
 ax.set_xticklabels(epidemics['epidemic'])
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
